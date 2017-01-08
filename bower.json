@@ -1,0 +1,29 @@
+{
+  "name": "finalizable",
+  "description": "Allows to describe and perform finalization process for any JavaScript class.",
+  "main": "build/finalizable.js",
+  "authors": [
+    "Yaroslav Konoplov <eahome00@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "publisher-subscriber",
+    "events",
+    "callbacks"
+  ],
+  "homepage": "https://github.com/yivo/callbacks",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "spec",
+    "coffeespec",
+    "gulpfile.*"
+  ]
+}
