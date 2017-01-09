@@ -10,8 +10,8 @@
 
   # AMD
   if typeof define is 'function' and typeof define.amd is 'object' and define.amd isnt null
-    root.finalizable = factory(root, Object)
-    define -> root.finalizable
+    root.Finalizable = factory(root, Object)
+    define -> root.Finalizable
 
   # CommonJS
   else if typeof module is 'object' and module isnt null and
@@ -20,20 +20,26 @@
 
   # Browser and the rest
   else
-    root.finalizable = factory(root, Object)
+    root.Finalizable = factory(root, Object)
 
   # No return value
   return
 
 )((__root__, Object) ->
-  VERSION: '0.0.1'
+  VERSION: '1.0.0'
   
   InstanceMembers:
+    finalized:      false
+    finalizing:     false
     __finalizers__: []
   
     finalize: ->
-      for fn in @__finalizers__
-        (if typeof fn is 'string' then this[fn] else fn).call(this)
+      if not @finalized and not @finalizing
+        @finalizing = true
+        for fn in @__finalizers__
+          (if typeof fn is 'string' then this[fn] else fn).call(this)
+        @finalizing = false
+        @finalized  = true
       this
   
   ClassMembers:

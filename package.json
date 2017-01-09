@@ -1,6 +1,6 @@
 {
   "name": "finalizable",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Allows to describe and perform finalization process for any JavaScript class.",
   "main": "build/finalizable.js",
   "devDependencies": {
