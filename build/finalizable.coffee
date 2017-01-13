@@ -1,32 +1,39 @@
+###!
+# finalizable 1.0.1 | https://github.com/yivo/finalizable | MIT License
+###
+
 ((factory) ->
 
-  # Browser and WebWorker
-  root = if typeof self is 'object' and self isnt null and self.self is self
-    self
+  __root__ = 
+    # The root object for Browser or Web Worker
+    if typeof self is 'object' and self isnt null and self.self is self
+      self
 
-  # Server
-  else if typeof global is 'object' and global isnt null and global.global is global
-    global
+    # The root object for Server-side JavaScript Runtime
+    else if typeof global is 'object' and global isnt null and global.global is global
+      global
 
-  # AMD
+    else
+      Function('return this')()
+
+  # Asynchronous Module Definition (AMD)
   if typeof define is 'function' and typeof define.amd is 'object' and define.amd isnt null
-    root.Finalizable = factory(root, Object)
-    define -> root.Finalizable
+    define ['coffee-concerns'], () ->
+      __root__.Finalizable = factory(__root__, Object)
 
-  # CommonJS
-  else if typeof module is 'object' and module isnt null and
-          typeof module.exports is 'object' and module.exports isnt null
-    module.exports = factory(root, Object)
+  # Server-side JavaScript Runtime compatible with CommonJS Module Spec
+  else if typeof module is 'object' and module isnt null and typeof module.exports is 'object' and module.exports isnt null
+    module.exports = factory(__root__, Object, require('coffee-concerns'))
 
-  # Browser and the rest
+  # Browser, Web Worker and the rest
   else
-    root.Finalizable = factory(root, Object)
+    __root__.Finalizable = factory(__root__, Object)
 
   # No return value
   return
 
 )((__root__, Object) ->
-  VERSION: '1.0.0'
+  VERSION: '1.0.1'
   
   InstanceMembers:
     finalized:      false

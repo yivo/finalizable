@@ -1,29 +1,26 @@
 {
   "name": "finalizable",
-  "description": "Allows to describe and perform finalization process for any JavaScript class.",
+  "description": "Allows to describe and perform finalization process for any JavaScript class",
   "main": "build/finalizable.js",
   "authors": [
     "Yaroslav Konoplov <eahome00@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
-    "publisher-subscriber",
-    "events",
-    "callbacks"
+    "finalizable",
+    "destructor",
+    "destroy",
+    "delete"
   ],
-  "homepage": "https://github.com/yivo/callbacks",
-  "moduleType": [
-    "amd",
-    "globals",
-    "node"
-  ],
+  "homepage": "https://github.com/yivo/finalizable",
   "ignore": [
+    "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests",
-    "spec",
-    "coffeespec",
-    "gulpfile.*"
-  ]
+    "tests"
+  ],
+  "dependencies": {
+    "coffee-concerns": "^1.0.10"
+  }
 }

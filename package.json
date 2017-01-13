@@ -1,15 +1,8 @@
 {
   "name": "finalizable",
-  "version": "1.0.0",
-  "description": "Allows to describe and perform finalization process for any JavaScript class.",
+  "version": "1.0.1",
+  "description": "Allows to describe and perform finalization process for any JavaScript class",
   "main": "build/finalizable.js",
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-coffee": "^2.3.1",
-    "gulp-concat": "^2.5.2",
-    "gulp-iife-wrap": "^1.0.5",
-    "gulp-plumber": "^1.0.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,10 +10,27 @@
     "type": "git",
     "url": "git+https://github.com/yivo/finalizable.git"
   },
+  "keywords": [
+    "finalizable",
+    "destructor",
+    "destroy",
+    "delete"
+  ],
   "author": "Yaroslav Konoplov <eahome00@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yivo/finalizable/issues"
   },
-  "homepage": "https://github.com/yivo/finalizable#readme"
+  "homepage": "https://github.com/yivo/finalizable#readme",
+  "dependencies": {
+    "coffee-concerns": "^1.0.10"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.2",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-umd-wrap": "^1.0.7"
+  }
 }
